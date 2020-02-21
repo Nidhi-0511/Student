@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
         myauth = FirebaseAuth.getInstance();
 
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             public void run() {
                 if (myauth.getCurrentUser() != null) {
                     ussr = myauth.getCurrentUser();
-                    ref = FirebaseDatabase.getInstance().getReference().child("Students").child(ussr.getUid()).child("type");
+                    ref = FirebaseDatabase.getInstance().getReference().child("corporate").child(ussr.getUid()).child("type");
                     ref.addListenerForSingleValueEvent(new ValueEventListener() {
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             Integer value = dataSnapshot.getValue(Integer.class);
@@ -66,12 +66,12 @@ public class MainActivity extends AppCompatActivity {
 
         public void opensubmit(){
             finish();
-            Intent intent = new Intent(MainActivity.this,mainstud.class);
+            Intent intent = new Intent(MainActivity.this,moti.class);
             startActivity(intent);
         }
     public void openques(){
         finish();
-        Intent intent = new Intent(MainActivity.this,ques.class);
+        Intent intent = new Intent(MainActivity.this,moti.class);
         startActivity(intent);
     }
     }

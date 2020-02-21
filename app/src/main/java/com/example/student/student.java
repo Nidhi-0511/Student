@@ -97,11 +97,7 @@ public class student extends AppCompatActivity implements View.OnClickListener {
                 });
 
     }
-    public void opensubmit(){
-        finish();
-        Intent intent = new Intent(student.this,mainstud.class);
-        startActivity(intent);
-    }
+
     public void opentech(){
         finish();
         Intent intent = new Intent(student.this,teacher.class);
@@ -120,16 +116,16 @@ public class student extends AppCompatActivity implements View.OnClickListener {
     private void onAuthSuccess(FirebaseUser user) {
 
         if (user != null) {
-            ref = FirebaseDatabase.getInstance().getReference().child("Students").child(user.getUid()).child("type");
+            ref = FirebaseDatabase.getInstance().getReference().child("corporate").child(user.getUid()).child("type");
             ref.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     Integer value = dataSnapshot.getValue(Integer.class);
                     if(value == 1) {
-                        startActivity(new Intent(student.this, mainstud.class));
+                        startActivity(new Intent(student.this, add.class));
                         Toast.makeText(student.this, "You're Logged in as Student", Toast.LENGTH_SHORT).show();
                     } else {
-                        startActivity(new Intent(student.this, ques.class));
+                        startActivity(new Intent(student.this, add.class));
                         Toast.makeText(student.this, "You're Logged in as Teacher", Toast.LENGTH_SHORT).show();
                     }
                 }

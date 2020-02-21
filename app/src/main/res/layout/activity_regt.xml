@@ -24,7 +24,7 @@
             android:layout_marginEnd="20dp"
             android:layout_marginRight="20dp"
             android:lineSpacingExtra="14sp"
-            android:text="HI WELCOME TO TECHSTUD"
+            android:text="HI WELCOME TO HAPPIFYY"
             android:textColor="#57C3E4"
             android:textSize="24sp"
             app:fontFamily="@font/fugaz_one"
@@ -70,7 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:layout_marginLeft="4dp"
-            android:layout_marginTop="164dp"
+            android:layout_marginTop="184dp"
             android:text="Email address"
             android:textColor="#FBFBFB"
             android:textSize="24sp"
@@ -78,44 +78,32 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/usn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="236dp"
-            android:text="TID"
-            android:textColor="#FBFBFB"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toStartOf="@+id/eusn2"
-            app:layout_constraintHorizontal_bias="0.046"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
             android:id="@+id/section"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="178dp"
+            android:layout_height="62dp"
             android:layout_marginStart="4dp"
             android:layout_marginLeft="4dp"
             android:layout_marginBottom="72dp"
-            android:text="Subjects"
+            android:text="COMPANY NAME"
             android:textColor="#FBFBFB"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/pass"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.993" />
+            app:layout_constraintVertical_bias="0.992" />
 
         <TextView
             android:id="@+id/pass"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="424dp"
+            android:layout_marginTop="412dp"
             android:layout_marginEnd="48dp"
             android:layout_marginRight="48dp"
             android:text="Password"
             android:textColor="#FBFBFB"
             android:textSize="24sp"
             app:layout_constraintEnd_toStartOf="@+id/pas2"
+            app:layout_constraintHorizontal_bias="0.157"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -144,20 +132,6 @@
             android:layout_marginRight="16dp"
             android:ems="10"
             android:hint="enter your full name"
-            android:inputType="textPersonName"
-            android:textColor="#FBFBFB"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/eusn2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="224dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
-            android:ems="10"
-            android:hint="enter your id"
             android:inputType="textPersonName"
             android:textColor="#FBFBFB"
             app:layout_constraintEnd_toEndOf="parent"
@@ -224,32 +198,27 @@
             android:id="@+id/email2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="28dp"
             android:ems="10"
             android:hint="enter your email address"
             android:inputType="textEmailAddress"
             android:textColor="#FBFBFB"
-            app:layout_constraintBottom_toTopOf="@+id/eusn2"
             app:layout_constraintStart_toEndOf="@+id/mailid"
-            app:layout_constraintTop_toBottomOf="@+id/name2"
-            app:layout_constraintVertical_bias="0.391" />
+            app:layout_constraintTop_toBottomOf="@+id/name2" />
 
         <EditText
             android:id="@+id/subject1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginRight="16dp"
+            android:layout_marginBottom="364dp"
             android:ems="10"
-            android:hint="enter subject1"
+            android:hint="enter company name"
             android:inputType="textPersonName"
             android:textColor="#FBFBFB"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/eusn2"
-            app:layout_constraintVertical_bias="0.012" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

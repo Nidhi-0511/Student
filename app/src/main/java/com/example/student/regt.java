@@ -22,9 +22,8 @@ import com.google.firebase.database.FirebaseDatabase;
 public class regt extends AppCompatActivity implements View.OnClickListener {
 
     private FirebaseAuth myauth;
-    private EditText name, email, etid, sub1, passw, cpas;
-    private Button submit;
-    private String vname, vemail, vetid, vsub1, vpassw, vcpas;
+    private EditText name, email, passw, cpas,cname;
+    private String vname, vemail, vpassw, vcpas,vcname;
     private ProgressBar pg;
     private int type;
     private FirebaseUser ussr;
@@ -35,15 +34,12 @@ public class regt extends AppCompatActivity implements View.OnClickListener {
         setContentView(R.layout.activity_regt);
         name = findViewById(R.id.name2);
         email = findViewById(R.id.email2);
-        etid = findViewById(R.id.eusn2);
-        sub1 = findViewById(R.id.subject1);
-        //sub2 = findViewById(R.id.subject2);
+        cname = findViewById(R.id.subject1);
         passw = findViewById(R.id.pas2);
         cpas = findViewById(R.id.cpas2);
         pg = findViewById(R.id.progressBar3);
         pg.setVisibility(View.GONE);
         myauth = FirebaseAuth.getInstance();
-        submit = findViewById(R.id.submit);
         findViewById(R.id.sub2).setOnClickListener(this);
 
     }
@@ -52,13 +48,13 @@ public class regt extends AppCompatActivity implements View.OnClickListener {
 
         vname = name.getText().toString().trim();
         vemail = email.getText().toString().trim();
-        vetid = etid.getText().toString().trim();
-        vsub1 = sub1.getText().toString().trim();
-        //vsub2 = sub2.getText().toString().trim();
+        //vetid = etid.getText().toString().trim();
+        //vsub1 = sub1.getText().toString().trim();
+        vcname = cname.getText().toString().trim();
         vpassw = passw.getText().toString().trim();
         vcpas = cpas.getText().toString().trim();
 
-        if (TextUtils.isEmpty(vemail) || TextUtils.isEmpty(vetid) || TextUtils.isEmpty(vsub1) || TextUtils.isEmpty(vpassw) || TextUtils.isEmpty(vname)||TextUtils.isEmpty(vcpas))
+        if (TextUtils.isEmpty(vemail)|| TextUtils.isEmpty(vpassw) || TextUtils.isEmpty(vname)||TextUtils.isEmpty(vcpas))
             Toast.makeText(regt.this, "Fields can't be empty", Toast.LENGTH_LONG).show();
         else if (!vcpas.equals(vpassw))
             Toast.makeText(regt.this, "Please enter the same password", Toast.LENGTH_LONG).show();
@@ -74,8 +70,8 @@ public class regt extends AppCompatActivity implements View.OnClickListener {
 
                             if (task.isSuccessful()) {
                                 //store in db
-                                    tuser tusr = new tuser(vname, vemail, vetid, vsub1, type);
-                                FirebaseDatabase.getInstance().getReference("Students").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                    tuser tusr = new tuser(vname, vemail,vcname, type);
+                                FirebaseDatabase.getInstance().getReference("corporate").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                         .setValue(tusr).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
@@ -83,7 +79,7 @@ public class regt extends AppCompatActivity implements View.OnClickListener {
                                         if (task.isSuccessful()) {
                                             Toast.makeText(regt.this, "registration successfull", Toast.LENGTH_LONG).show();
                                             finish();
-                                            Intent intent = new Intent(regt.this, ques.class);
+                                            Intent intent = new Intent(regt.this, moti.class);
                                             startActivity(intent);
                                         } else {
                                             ussr = FirebaseAuth.getInstance().getCurrentUser();

@@ -11,12 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ans"></activity>
+        <activity android:name=".moti"></activity>
         <activity android:name=".add" />
-        <activity android:name=".ques" />
         <activity android:name=".regt" />
         <activity android:name=".regs" />
-        <activity android:name=".mainstud" />
         <activity android:name=".teacher" />
         <activity android:name=".student" />
         <activity android:name=".MainActivity">

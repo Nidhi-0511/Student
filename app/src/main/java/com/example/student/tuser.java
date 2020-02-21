@@ -7,10 +7,9 @@ public class tuser {
     public tuser() {
     }
 
-    public tuser(String name, String email, String tid, String sub1,int type) {
+    public tuser(String name, String email, String sub1, int type) {
         this.name = name;
         this.email = email;
-        this.tid = tid;
         this.sub1 = sub1;
         //this.sub2 = sub2;
     }

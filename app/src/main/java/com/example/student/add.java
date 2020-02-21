@@ -63,41 +63,12 @@ public class add extends AppCompatActivity {
         });
 
         tv=findViewById(R.id.textView4);
-        t1=findViewById(R.id.textView5);
 
-        ref = FirebaseDatabase.getInstance().getReference().child("questions");
+        ref = FirebaseDatabase.getInstance().getReference().child("articles");
         ref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
-                    //Map<String,Object>  map = (Map<String, Object>) dataSnapshot.getValue();
-
-                   // for(String key : map.keySet()) {
-                       // Object mmap = map.get(key);
-
-
-                       // String qe = (String)mmap.get("eq");
-                       // String o1 = mmap.get("ea");
-                       // String o2 = map.get("eb");
-                       // String o3 = map.get("ec");
-                      //  String o4 = map.get("e1d");
-
-
-                       // tv.setText(qe);
-                       // t1.setText(o1);
-                       // t2.setText(o2);
-                       // t3.setText(o3);
-                       // t4.setText(o4);
-
-                       // next.setOnClickListener(new View.OnClickListener() {
-                            //@Override
-                          //  public void onClick(View v) {
-
-
-                         //   }
-                        //});
-
-                    //}
 
                    HashMap<String, Object> dataMap = (HashMap<String, Object>) dataSnapshot.getValue();
 
@@ -108,10 +79,10 @@ public class add extends AppCompatActivity {
                         try {
                             HashMap<String, Object> userData = (HashMap<String, Object>) data;
 
-                            Tech mUser = new Tech((String) userData.get("eq"), (String) userData.get("ea"));
+                            Tech mUser = new Tech((String) userData.get("eq"));
                            // String sg = dataSnapshot.getValue(String.class);
                             tv.setText(mUser.getEq());
-                            t1.setText(mUser.getEa());
+
 
 
 
@@ -136,33 +107,27 @@ public class add extends AppCompatActivity {
         done= ed.findViewById(R.id.done);
         cancel = ed.findViewById(R.id.button);
         q = ed.findViewById(R.id.editText);
-        a = ed.findViewById(R.id.editText2);
-        //b = ed.findViewById(R.id.editText3);
-        //c = ed.findViewById(R.id.editText4);
-        //d = ed.findViewById(R.id.editText5);
+
 
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 eq = q.getText().toString().trim();
-                ea = a.getText().toString().trim();
-                //eb = b.getText().toString().trim();
-                //ec = c.getText().toString().trim();
-                //e1d = d.getText().toString().trim();
-                if(TextUtils.isEmpty(eq)||TextUtils.isEmpty(ea)) {
+
+                if(TextUtils.isEmpty(eq)) {
                     Toast.makeText(add.this, "please fill in all the details", Toast.LENGTH_LONG).show();
                     showpopup();
                 }
                 else {
-                    Tech t = new Tech(eq, ea);
+                    Tech t = new Tech(eq);
                     db=FirebaseDatabase.getInstance();
-                    String key=db.getReference().child("questions").push().getKey();
+                    String key=db.getReference().child("articles").push().getKey();
 
-                    FirebaseDatabase.getInstance().getReference().child("questions").child(key)
+                    FirebaseDatabase.getInstance().getReference().child("articles").child(key)
                             .setValue(t).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                            Toast.makeText(add.this, "question added successfully", Toast.LENGTH_LONG).show();
+                            Toast.makeText(add.this, "article uploaded successfully", Toast.LENGTH_LONG).show();
                             ed.dismiss();
                         }
                     });
